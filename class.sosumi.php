@@ -100,6 +100,7 @@
                              'X-Mobileme-Isc: ' . $this->lsc['secure.me.com']);
             $html = $this->curlPost('https://secure.me.com/wo/WebObjects/DeviceMgmt.woa/wa/LocateAction/locateStatus', $post, 'https://secure.me.com/account/', $headers, false);
             $json = json_decode($html);
+            $json->udid = trim($the_device['deviceId']);
             return $json;
         }
 
